@@ -1,0 +1,7 @@
+#!/bin/bash
+/show/description "Removing gpioCommand service"
+supervisorctl stop gpioCommand
+/system/autoBackup /etc/supervisor/conf.d/gpioCommand.conf
+rm -vf /etc/supervisor/conf.d/gpioCommand.conf
+supervisorctl reread
+supervisorctl update

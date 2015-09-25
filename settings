@@ -1,0 +1,4 @@
+#!/bin/bash
+nano /opt/user/config/gpioCommand/gpioCommand.cfg
+/do/gpioCommand/restart
+/do/gpioCommand/log

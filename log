@@ -1,0 +1,7 @@
+#!/bin/bash
+/show/description "gpioCommand Status"
+/show/listecho  "PRESS [CTRL-C] to quit" $WARN
+/show/listecho "Supervisor status" $OK
+supervisorctl status gpioCommand
+/show/description "GpioCommand log" $OK
+tail -f /var/log/gpioCommand.log

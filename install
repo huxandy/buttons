@@ -1,0 +1,22 @@
+#!/bin/bash
+/show/description "Install gpioCommand as a service"
+
+/system/install supervisor
+cat <<\EOF > /etc/supervisor/conf.d/gpioCommand.conf
+[program:gpioCommand]
+command=/do/gpioCommand/check
+autostart=true
+autorestart=true
+stdout_logfile=/var/log/gpioCommand.log
+redirect_stderr=true
+EOF
+supervisorctl reread
+supervisorctl update
+
+/show/listecho "Copy config files" $OK
+/system/makedir /opt/user/config/gpioCommand
+if [ -z "/boot/piget/config/pilight/gpioCommand.cfg" ];then
+	cp -v /boot/piget/config/gpioCommand/gpioCommand.cfg /opt/user/config/gpioCommand/gpioCommand.cfg
+else
+	cp -v /opt/piget/gpioCommand/default/gpioCommand.cfg /opt/user/config/gpioCommand/gpioCommand.cfg
+fi

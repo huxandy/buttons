@@ -1,0 +1,3 @@
+#!/bin/bash
+/show/listecho "Start gpioCommand" $OK
+supervisorctl start gpioCommand
