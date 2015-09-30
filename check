@@ -1,2 +1,2 @@
 #!/bin/bash
-exec python -u /opt/piget/gpioCommand/python/gpioCommand.py
+exec python -u /do/gpioCommand/python/gpioCommand.py
