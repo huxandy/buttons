@@ -1,4 +1,4 @@
 #!/bin/bash
-/show/listecho "Stop gpioCommand" $ERR
-supervisorctl stop gpioCommand
+/show/listecho "Stop buttons" $ERR
+supervisorctl stop buttons
 

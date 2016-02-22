@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# gpioCommand
+# buttons
 # Control your pi with Gpio
 # Use a switch or a motion detector
 #
@@ -19,7 +19,7 @@ from lib import Gpio
 from lib import TriggersINI
 
 # Commands.send("printenv")
-configurationFile = "/opt/user/config/gpioCommand/gpioCommand.cfg"
+configurationFile = "/opt/user/config/buttons/buttons.cfg"
 sys.stdout.write("GPIO Triggers ON\n")
 
 # Get triggers from configuration file

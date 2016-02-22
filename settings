@@ -1,4 +1,4 @@
 #!/bin/bash
-nano /opt/user/config/gpioCommand/gpioCommand.cfg
-/do/gpioCommand/restart
-/do/gpioCommand/log
+nano /opt/user/config/buttons/buttons.cfg
+/do/buttons/restart
+/do/buttons/log

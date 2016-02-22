@@ -1,4 +1,4 @@
 #!/bin/bash
 /show/listecho "Restarting pilightCommand" $OK
-/do/gpioCommand/stop
-/do/gpioCommand/start
+/do/buttons/stop
+/do/buttons/start

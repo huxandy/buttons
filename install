@@ -1,22 +1,22 @@
 #!/bin/bash
-/show/description "Install gpioCommand as a service"
+/show/description "Install buttons as a service"
 
 /system/install supervisor
-cat <<\EOF > /etc/supervisor/conf.d/gpioCommand.conf
-[program:gpioCommand]
-command=/do/gpioCommand/check
+cat <<\EOF > /etc/supervisor/conf.d/buttons.conf
+[program:buttons]
+command=/do/buttons/check
 autostart=true
 autorestart=true
-stdout_logfile=/var/log/gpioCommand.log
+stdout_logfile=/var/log/buttons.log
 redirect_stderr=true
 EOF
 supervisorctl reread
 supervisorctl update
 
 /show/listecho "Copy config files" $OK
-/system/makedir /opt/user/config/gpioCommand
-if [ -z "/boot/piget/config/pilight/gpioCommand.cfg" ];then
-	cp -v /boot/piget/config/gpioCommand/gpioCommand.cfg /opt/user/config/gpioCommand/gpioCommand.cfg
+/system/makedir /opt/user/config/buttons
+if [ -z "/boot/piget/config/pilight/buttons.cfg" ];then
+	cp -v /boot/piget/config/buttons/buttons.cfg /opt/user/config/buttons/buttons.cfg
 else
-	cp -v /opt/piget/gpioCommand/default/gpioCommand.cfg /opt/user/config/gpioCommand/gpioCommand.cfg
+	cp -v /opt/piget/buttons/default/buttons.cfg /opt/user/config/buttons/buttons.cfg
 fi
