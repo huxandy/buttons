@@ -1,0 +1,9 @@
+#!/bin/bash
+state=$(gpio read $(/system/bcmToWpi $1))
+if [ $state -eq 1 ];then
+	echo "0"
+fi
+
+if [ $state -eq 0 ];then
+	echo "1"
+fi

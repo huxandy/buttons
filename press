@@ -1,0 +1,9 @@
+#!/bin/bash
+pin=$(/system/bcmToWpi $1)
+echo "Press $1"
+gpio mode $pin out
+gpio write $pin 0
+sleep 0.05
+gpio mode $pin in
+gpio mode $pin up
+gpio write $pin 1
