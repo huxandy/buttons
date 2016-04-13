@@ -8,7 +8,6 @@
 # Copyright : Gplv3
 #
 
-import socket
 import sys
 import RPi.GPIO as GPIO
 import threading

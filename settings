@@ -1,4 +1,12 @@
 #!/bin/bash
-nano /opt/user/config/buttons/buttons.cfg
-/do/buttons/restart
-/do/buttons/log
+if [ $# -ne 0 ] || [[ $1 == "--help" ]] || [ $(id -u) -ne 0 ];then
+		/show/messagebox "$0"
+		/show/info "[beta] [gpio] [buttons] [electronics] [interactive] [nano]"
+		/show/usageDescription "Modify buttons configuration, restart it and show log"
+		/show/usage "$0"
+		exit 1
+else
+    nano /user/config/buttons/buttons.cfg
+    /do/buttons/restart
+    /do/buttons/log
+fi

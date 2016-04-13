@@ -1,7 +1,14 @@
 #!/bin/bash
-/show/description "Install buttons as a service"
+if [ $# -ne 0 ] || [[ $1 == "--help" ]] || [ $(id -u) -ne 0 ];then
+		/show/messagebox "$0"
+		/show/info "[beta] [gpio] [buttons] [electronics] [supervisor] [wiringPi]"
+		/show/usageDescription "Install buttons module"
+		/show/usage "$0"
+		exit 1
+else
+		/show/description "Install buttons as a service"
+		/system/install supervisor
 
-/system/install supervisor
 cat <<\EOF > /etc/supervisor/conf.d/buttons.conf
 [program:buttons]
 command=/do/buttons/check
@@ -10,13 +17,13 @@ autorestart=true
 stdout_logfile=/var/log/buttons.log
 redirect_stderr=true
 EOF
-supervisorctl reread
-supervisorctl update
 
-/show/listecho "Copy config files" $OK
-/system/makedir /opt/user/config/buttons
-if [ -z "/boot/piget/config/pilight/buttons.cfg" ];then
-	cp -v /boot/piget/config/buttons/buttons.cfg /opt/user/config/buttons/buttons.cfg
-else
-	cp -v /opt/piget/buttons/default/buttons.cfg /opt/user/config/buttons/buttons.cfg
+		supervisorctl reread
+		supervisorctl update
+
+		/show/listecho "Copy config files" $OK
+		/system/makedir /user/config/buttons
+		cp -v /do/buttons/conf/buttons.cfg /user/config/buttons/buttons.cfg
+
+		/system/installWiringPi
 fi

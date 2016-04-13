@@ -1,9 +1,19 @@
 #!/bin/bash
-state=$(gpio read $(/system/bcmToWpi $1))
-if [ $state -eq 1 ];then
-	echo "0"
-fi
+if [ $# -ne 1 ] || [[ $1 == "--help" ]] || [ $(id -u) -ne 0 ];then
+		/show/messagebox "$0"
+		/show/info "[beta] [gpio] [buttons] [electronics] [supervisor] [bcm]"
+		/show/usageDescription "Show state of button (bcm) using gpio utility"
+		/show/usage "$0 bcmPin"
+		/show/example "$0 26"
+		exit 1
+else
+	  # Since buttons are in pull-up we need to invert state
+		state=$(gpio read $(/system/bcmToWpi $1))
+		if [ $state -eq 1 ];then
+			echo "0"
+		fi
 
-if [ $state -eq 0 ];then
-	echo "1"
+		if [ $state -eq 0 ];then
+			echo "1"
+		fi
 fi

@@ -1,7 +1,15 @@
 #!/bin/bash
-/show/description "Removing buttons service"
-supervisorctl stop buttons
-/system/autoBackup /etc/supervisor/conf.d/buttons.conf
-rm -vf /etc/supervisor/conf.d/buttons.conf
-supervisorctl reread
-supervisorctl update
+if [ $# -ne 0 ] || [[ $1 == "--help" ]] || [ $(id -u) -ne 0 ];then
+		/show/messagebox "$0"
+		/show/info "[beta] [gpio] [buttons] [electronics] [supervisor]"
+		/show/usageDescription "Uninstall buttons service"
+		/show/usage "$0"
+		exit 1
+else
+    /show/description "[BUTTONS] Remove"
+    supervisorctl stop buttons
+    /system/autoBackup /etc/supervisor/conf.d/buttons.conf
+    rm -f /etc/supervisor/conf.d/buttons.conf
+    supervisorctl reread
+    supervisorctl update
+fi
