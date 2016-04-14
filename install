@@ -1,29 +1,38 @@
 #!/bin/bash
 if [ $# -ne 0 ] || [[ $1 == "--help" ]] || [ $(id -u) -ne 0 ];then
-		/show/messagebox "$0"
-		/show/info "[beta] [gpio] [buttons] [electronics] [supervisor] [wiringPi]"
-		/show/usageDescription "Install buttons module"
-		/show/usage "$0"
-		exit 1
+	/show/messagebox "$0"
+	/show/info "[beta] [gpio] [buttons] [electronics] [supervisor] [wiringPi]"
+	/show/usageDescription "Install buttons module"
+	/show/usage "$0"
+	exit 1
 else
-		/show/description "Install buttons as a service"
-		/system/install supervisor
+	/show/description "[BUTTONS] Install"
 
-cat <<\EOF > /etc/supervisor/conf.d/buttons.conf
+	#We install WiringPi to have gpio utility
+	/system/installWiringPi
+
+	#We install supervisor and create a service
+	/show/listecho "[BUTTONS] Create service" $OK
+	/system/install supervisor
+
+	cat <<\EOF > /etc/supervisor/conf.d/buttons.conf
 [program:buttons]
 command=/do/buttons/check
 autostart=true
 autorestart=true
 stdout_logfile=/var/log/buttons.log
 redirect_stderr=true
+logfile_maxbytes=10MB
+logfile_backups=0
 EOF
 
 		supervisorctl reread
 		supervisorctl update
 
-		/show/listecho "Copy config files" $OK
+		/show/listecho "[BUTTONS] Copy default config" $OK
 		/system/makedir /user/config/buttons
-		cp -v /do/buttons/conf/buttons.cfg /user/config/buttons/buttons.cfg
+		cp /do/buttons/conf/buttons.cfg /user/config/buttons/buttons.cfg
+		/show/file /user/config/buttons/buttons.cfg
+		/show/listecho "Type /do/buttons/settings to modify configuration" $OK
 
-		/system/installWiringPi
 fi

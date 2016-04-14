@@ -11,16 +11,18 @@
 | Description            | Show buttons configuration (/user/config/buttons/buttons.cfg) |
 | Usage                  | /do/buttons/commands                                          |
 
-| /do/buttons/install             |                                                                                                 |
-|:--------------------------------|:------------------------------------------------------------------------------------------------|
-| Info                            | [beta] [gpio] [buttons] [electronics] [supervisor] [wiringPi]                                   |
-| Description                     | Install buttons module                                                                          |
-| Usage                           | /do/buttons/install                                                                             |
-| Softwares                       | supervisor, WiringPi,                                                                           |
-| Modules                         | command=/do/buttons/check, cp -v /do/buttons/conf/buttons.cfg /user/config/buttons/buttons.cfg, |
-| System                          | /system/install supervisor, /system/makedir /user/config/buttons, /system/installWiringPi,      |
-| 1. Install buttons as a service |                                                                                                 |
-| 2. Copy config files            |                                                                                                 |
+| /do/buttons/install                                  |                                                                                              |
+|:-----------------------------------------------------|:---------------------------------------------------------------------------------------------|
+| Info                                                 | [beta] [gpio] [buttons] [electronics] [supervisor] [wiringPi]                                |
+| Description                                          | Install buttons module                                                                       |
+| Usage                                                | /do/buttons/install                                                                          |
+| Softwares                                            | WiringPi, supervisor,                                                                        |
+| Modules                                              | command=/do/buttons/check, cp /do/buttons/conf/buttons.cfg /user/config/buttons/buttons.cfg, |
+| System                                               | /system/installWiringPi, /system/install supervisor, /system/makedir /user/config/buttons,   |
+| 1. [BUTTONS] Install                                 |                                                                                              |
+| 2. [BUTTONS] Create service                          |                                                                                              |
+| 4. [BUTTONS] Copy default config                     |                                                                                              |
+| 5. Type /do/buttons/settings to modify configuration |                                                                                              |
 
 | /do/buttons/log   |                                                    |
 |:------------------|:---------------------------------------------------|
@@ -30,6 +32,14 @@
 | 1. buttons Status |                                                    |
 | 1. Status         |                                                    |
 | 2. Log            |                                                    |
+
+| /do/buttons/poweroffReboot                    |                                                                                               |
+|:----------------------------------------------|:----------------------------------------------------------------------------------------------|
+| Info                                          | [beta] [gpio] [buttons] [electronics]                                                         |
+| Description                                   | Setup buttons to shutdown or reboot a Raspberry Pi                                            |
+| Usage                                         | /do/buttons/poweroffReboot                                                                    |
+| Modules                                       | cp /do/buttons/conf/poweroffReboot.cfg /user/config/buttons/buttons.cfg, /do/buttons/restart, |
+| 1. [BUTTONS] Copy poweroff and restart config |                                                                                               |
 
 | /do/buttons/press    |                                       |
 |:---------------------|:--------------------------------------|
@@ -47,14 +57,13 @@
 | Description           | Restart buttons service                            |
 | Usage                 | /do/buttons/restart                                |
 | Modules               | /do/buttons/stop, /do/buttons/start,               |
-| 1. [BUTTONS] Restart  |                                                    |
 
 | /do/buttons/settings   |                                                            |
 |:-----------------------|:-----------------------------------------------------------|
 | Info                   | [beta] [gpio] [buttons] [electronics] [interactive] [nano] |
 | Description            | Modify buttons configuration, restart it and show log      |
 | Usage                  | /do/buttons/settings                                       |
-| Modules                | /do/buttons/restart, /do/buttons/log,                      |
+| Modules                | /do/buttons/restart, /do/buttons/tailLog,                  |
 
 | /do/buttons/start   |                                                    |
 |:--------------------|:---------------------------------------------------|
@@ -78,6 +87,15 @@
 | Description        | Stop buttons service                               |
 | Usage              | /do/buttons/stop                                   |
 | 1. [BUTTONS] stop  |                                                    |
+
+| /do/buttons/tailLog           |                                                                        |
+|:------------------------------|:-----------------------------------------------------------------------|
+| Info                          | [beta] [gpio] [buttons] [electronics] [log] [tail] [interactive]       |
+| Description                   | Show service status and display and display log until you press CTRL-C |
+| Usage                         | /do/buttons/tailLog                                                    |
+| 1. buttons Status             |                                                                        |
+| 1. Status                     |                                                                        |
+| 2. Log (press CTRL-C to stop) |                                                                        |
 
 | /do/buttons/uninstall   |                                                         |
 |:------------------------|:--------------------------------------------------------|

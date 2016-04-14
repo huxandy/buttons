@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ $# -ne 0 ] || [[ $1 == "--help" ]] || [ $(id -u) -ne 0 ];then
+		/show/messagebox "$0"
+		/show/info "[beta] [gpio] [buttons] [electronics] [log] [tail] [interactive]"
+		/show/usageDescription "Show service status and display and display log until you press CTRL-C"
+		/show/usage "$0"
+		exit 1
+else
+    /show/description "buttons Status"
+    /show/listecho "Status" $OK
+    supervisorctl status buttons
+    /show/description "Log (press CTRL-C to stop)" $OK
+    tail -f /var/log/buttons.log
+fi

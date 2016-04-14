@@ -18,6 +18,11 @@
 | Description       | Show service status and display and of log         |
 | Info              | [beta] [gpio] [buttons] [electronics] [log] [tail] |
 
+| /do/buttons/poweroffReboot   |                                                    |
+|:-----------------------------|:---------------------------------------------------|
+| Description                  | Setup buttons to shutdown or reboot a Raspberry Pi |
+| Info                         | [beta] [gpio] [buttons] [electronics]              |
+
 | /do/buttons/press   |                                       |
 |:--------------------|:--------------------------------------|
 | Description         | Simulate a button with gpio utility   |
@@ -49,6 +54,11 @@
 |:-------------------|:---------------------------------------------------|
 | Description        | Stop buttons service                               |
 | Info               | [beta] [gpio] [buttons] [electronics] [supervisor] |
+
+| /do/buttons/tailLog   |                                                                        |
+|:----------------------|:-----------------------------------------------------------------------|
+| Description           | Show service status and display and display log until you press CTRL-C |
+| Info                  | [beta] [gpio] [buttons] [electronics] [log] [tail] [interactive]       |
 
 | /do/buttons/uninstall   |                                                    |
 |:------------------------|:---------------------------------------------------|
