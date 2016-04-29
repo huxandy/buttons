@@ -1,9 +1,9 @@
-| /do/buttons/check   |                                                |
-|:--------------------|:-----------------------------------------------|
-| Info                | [beta] [gpio] [buttons] [electronics] [python] |
-| Description         | Use this to check if buttons service works     |
-| Usage               | /do/buttons/check                              |
-| Modules             | exec python -u /do/buttons/python/buttons.py,  |
+| /do/buttons/check   |                                                                        |
+|:--------------------|:-----------------------------------------------------------------------|
+| Info                | [beta] [gpio] [buttons] [electronics] [python]                         |
+| Description         | Use this to check if buttons service works (this will stop the service |
+| Usage               | /do/buttons/check                                                      |
+| Modules             | /do/buttons/stop, exec python -u /do/buttons/python/buttons.py,        |
 
 | /do/buttons/commands   |                                                               |
 |:-----------------------|:--------------------------------------------------------------|
@@ -51,6 +51,14 @@
 | System               | pin=$(/system/bcmToWpi $1),           |
 | 1. Simulate Press $1 |                                       |
 
+| /do/buttons/remove   |                                                         |
+|:---------------------|:--------------------------------------------------------|
+| Info                 | [beta] [gpio] [buttons] [electronics] [supervisor]      |
+| Description          | Uninstall buttons service                               |
+| Usage                | /do/buttons/remove                                      |
+| System               | /system/autoBackup /etc/supervisor/conf.d/buttons.conf, |
+| 1. [BUTTONS] Remove  |                                                         |
+
 | /do/buttons/restart   |                                                    |
 |:----------------------|:---------------------------------------------------|
 | Info                  | [beta] [gpio] [buttons] [electronics] [supervisor] |
@@ -96,12 +104,4 @@
 | 1. buttons Status             |                                                                        |
 | 1. Status                     |                                                                        |
 | 2. Log (press CTRL-C to stop) |                                                                        |
-
-| /do/buttons/uninstall   |                                                         |
-|:------------------------|:--------------------------------------------------------|
-| Info                    | [beta] [gpio] [buttons] [electronics] [supervisor]      |
-| Description             | Uninstall buttons service                               |
-| Usage                   | /do/buttons/uninstall                                   |
-| System                  | /system/autoBackup /etc/supervisor/conf.d/buttons.conf, |
-| 1. [BUTTONS] Remove     |                                                         |
 

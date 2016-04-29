@@ -1,7 +1,7 @@
-| /do/buttons/check   |                                                |
-|:--------------------|:-----------------------------------------------|
-| Description         | Use this to check if buttons service works     |
-| Info                | [beta] [gpio] [buttons] [electronics] [python] |
+| /do/buttons/check   |                                                                        |
+|:--------------------|:-----------------------------------------------------------------------|
+| Description         | Use this to check if buttons service works (this will stop the service |
+| Info                | [beta] [gpio] [buttons] [electronics] [python]                         |
 
 | /do/buttons/commands   |                                                               |
 |:-----------------------|:--------------------------------------------------------------|
@@ -28,6 +28,11 @@
 | Description         | Simulate a button with gpio utility   |
 | Example             | /do/buttons/press 26                  |
 | Info                | [beta] [gpio] [buttons] [electronics] |
+
+| /do/buttons/remove   |                                                    |
+|:---------------------|:---------------------------------------------------|
+| Description          | Uninstall buttons service                          |
+| Info                 | [beta] [gpio] [buttons] [electronics] [supervisor] |
 
 | /do/buttons/restart   |                                                    |
 |:----------------------|:---------------------------------------------------|
@@ -59,9 +64,4 @@
 |:----------------------|:-----------------------------------------------------------------------|
 | Description           | Show service status and display and display log until you press CTRL-C |
 | Info                  | [beta] [gpio] [buttons] [electronics] [log] [tail] [interactive]       |
-
-| /do/buttons/uninstall   |                                                    |
-|:------------------------|:---------------------------------------------------|
-| Description             | Uninstall buttons service                          |
-| Info                    | [beta] [gpio] [buttons] [electronics] [supervisor] |
 

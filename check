@@ -2,9 +2,10 @@
 if [ $# -ne 0 ] || [[ $1 == "--help" ]] || [ $(id -u) -ne 0 ];then
   /show/messagebox "$0"
   /show/info "[beta] [gpio] [buttons] [electronics] [python]"
-  /show/usageDescription "Use this to check if buttons service works"
+  /show/usageDescription "Use this to check if buttons service works (this will stop the service"
   /show/usage "$0"
   exit 1
 else
+  /do/buttons/stop
   exec python -u /do/buttons/python/buttons.py
 fi
