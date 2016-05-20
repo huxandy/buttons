@@ -1,0 +1,6 @@
+echo "FOR DEV ONLY DO NOT USE IT! (PRESS CTRL-C)"
+read
+cd /opt/wiringPi
+./build uninstall
+rm -rf /opt/wiringPi
+

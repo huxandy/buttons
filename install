@@ -29,10 +29,11 @@ EOF
 		supervisorctl reread
 		supervisorctl update
 
-		/show/listecho "[BUTTONS] Copy default config" $OK
-		/system/makedir /user/config/buttons
-		cp /do/buttons/conf/buttons.cfg /user/config/buttons/buttons.cfg
-		/show/file /user/config/buttons/buttons.cfg
-		/show/listecho "Type /do/buttons/settings to modify configuration" $OK
-
+		if [ ! -f "/user/config/buttons/buttons.cfg" ];then
+			/show/listecho "[BUTTONS] Copy default config" $OK
+			/system/makedir /user/config/buttons
+			cp /do/buttons/conf/buttons.cfg /user/config/buttons/buttons.cfg
+			/show/file /user/config/buttons/buttons.cfg
+			/show/listecho "Type /do/buttons/settings to modify configuration" $OK
+		fi
 fi
