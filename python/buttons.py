@@ -9,13 +9,24 @@
 #
 
 import sys
-import RPi.GPIO as GPIO
 import threading
 import time
 
 from lib import Commands
-from lib import Gpio
 from lib import TriggersINI
+
+#Check if it is a Raspberry Pi or an orange Pi
+raspberrypi = True
+
+for line in open("/proc/cpuinfo"):
+    if "sun8i" in line:
+        raspberrypi = False
+
+if raspberrypi:
+    from lib import Gpio
+    import RPi.GPIO as GPIO
+else:
+    from lib import Gpio_h3 as Gpio
 
 # Commands.send("printenv")
 configurationFile = "/opt/user/config/buttons/buttons.cfg"
@@ -54,4 +65,5 @@ try:
 except KeyboardInterrupt:
     sys.stdout.write("-----------------------\n")
     sys.stdout.write("GPIO Triggers OFF\n")
-    GPIO.cleanup()
+    if raspberrypi:
+        GPIO.cleanup()
