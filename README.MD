@@ -1,5 +1,5 @@
 # piget-buttons
-Install a service that will checked if a button is pressed and start a command
+Install a service that will checked if a button is pressed and start a command   
 Everything can be setup using a configuration file (ini)
 
 ````
