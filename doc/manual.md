@@ -1,7 +1,7 @@
 | /do/buttons/check   |                                                                        |
 |:--------------------|:-----------------------------------------------------------------------|
 | Description         | Use this to check if buttons service works (this will stop the service |
-| Info                | [beta] [gpio] [buttons] [electronics] [python]                         |
+| Info                | [beta] [gpio] [buttons] [electronics] [python] [orangepi]              |
 
 | /do/buttons/commands   |                                                               |
 |:-----------------------|:--------------------------------------------------------------|
