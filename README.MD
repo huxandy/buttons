@@ -7,11 +7,11 @@ Everything can be setup using a configuration file (ini)
 ````
 
 
-|Author | Rémi Sarrailh |
-|-----------------------|
-|License| MIT           |
+|Author                 |Rémi Sarrailh                       |
+|:---------------------:|:----------------------------------:|
+|License                | MIT                                |
 |Documentation (ENGLISH)| http://madnerd.org/en/piget-buttons|
-|Documentation (FRENCH)| http://madnerd.org/fr/piget-buttons|
+|Documentation (FRENCH) | http://madnerd.org/fr/piget-buttons|
 
 # Offline documentation
 You can find more information on commands and schematics here :
