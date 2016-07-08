@@ -44,6 +44,10 @@
 | Description            | Modify buttons configuration, restart it and show log      |
 | Info                   | [beta] [gpio] [buttons] [electronics] [interactive] [nano] |
 
+| /do/buttons/setup   |                        |
+|:--------------------|:-----------------------|
+| Info                | [alpha] [undocumented] |
+
 | /do/buttons/start   |                                                    |
 |:--------------------|:---------------------------------------------------|
 | Description         | Start buttons service                              |

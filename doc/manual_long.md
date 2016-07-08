@@ -4,11 +4,13 @@
 | Description         | Use this to check if buttons service works (this will stop the service |
 | Usage               | /do/buttons/check                                                      |
 | Modules             | exec python -u /do/buttons/python/buttons.py,                          |
+
 | /do/buttons/commands   |                                                               |
 |:-----------------------|:--------------------------------------------------------------|
 | Info                   | [beta] [gpio] [buttons] [electronics] [cat]                   |
 | Description            | Show buttons configuration (/user/config/buttons/buttons.cfg) |
 | Usage                  | /do/buttons/commands                                          |
+
 | /do/buttons/install                                  |                                                                                              |
 |:-----------------------------------------------------|:---------------------------------------------------------------------------------------------|
 | Info                                                 | [beta] [gpio] [buttons] [electronics] [supervisor] [wiringPi]                                |
@@ -21,6 +23,7 @@
 | 2. [BUTTONS] Create service                          |                                                                                              |
 | 4. [BUTTONS] Copy default config                     |                                                                                              |
 | 5. Type /do/buttons/settings to modify configuration |                                                                                              |
+
 | /do/buttons/log   |                                                    |
 |:------------------|:---------------------------------------------------|
 | Info              | [beta] [gpio] [buttons] [electronics] [log] [tail] |
@@ -29,6 +32,7 @@
 | 1. buttons Status |                                                    |
 | 1. Status         |                                                    |
 | 2. Log            |                                                    |
+
 | /do/buttons/poweroffReboot                    |                                                                                               |
 |:----------------------------------------------|:----------------------------------------------------------------------------------------------|
 | Info                                          | [beta] [gpio] [buttons] [electronics]                                                         |
@@ -36,6 +40,7 @@
 | Usage                                         | /do/buttons/poweroffReboot                                                                    |
 | Modules                                       | cp /do/buttons/conf/poweroffReboot.cfg /user/config/buttons/buttons.cfg, /do/buttons/restart, |
 | 1. [BUTTONS] Copy poweroff and restart config |                                                                                               |
+
 | /do/buttons/press    |                                       |
 |:---------------------|:--------------------------------------|
 | Info                 | [beta] [gpio] [buttons] [electronics] |
@@ -45,6 +50,11 @@
 | Variables            | pin=$(/system/bcmToWpi $1),           |
 | System               | pin=$(/system/bcmToWpi $1),           |
 | 1. Simulate Press $1 |                                       |
+
+| /do/buttons/README.MD   |                        |
+|:------------------------|:-----------------------|
+| Info                    | [alpha] [undocumented] |
+
 | /do/buttons/remove   |                                                         |
 |:---------------------|:--------------------------------------------------------|
 | Info                 | [beta] [gpio] [buttons] [electronics] [supervisor]      |
@@ -52,24 +62,33 @@
 | Usage                | /do/buttons/remove                                      |
 | System               | /system/autoBackup /etc/supervisor/conf.d/buttons.conf, |
 | 1. [BUTTONS] Remove  |                                                         |
+
 | /do/buttons/restart   |                                                    |
 |:----------------------|:---------------------------------------------------|
 | Info                  | [beta] [gpio] [buttons] [electronics] [supervisor] |
 | Description           | Restart buttons service                            |
 | Usage                 | /do/buttons/restart                                |
 | Modules               | /do/buttons/stop, /do/buttons/start,               |
+
 | /do/buttons/settings   |                                                            |
 |:-----------------------|:-----------------------------------------------------------|
 | Info                   | [beta] [gpio] [buttons] [electronics] [interactive] [nano] |
 | Description            | Modify buttons configuration, restart it and show log      |
 | Usage                  | /do/buttons/settings                                       |
 | Modules                | /do/buttons/restart, /do/buttons/tailLog,                  |
+
+| /do/buttons/setup   |                                                  |
+|:--------------------|:-------------------------------------------------|
+| Info                | [alpha] [undocumented]                           |
+| Modules             | /show/commandMenu /do/buttons/menu/buttons.conf, |
+
 | /do/buttons/start   |                                                    |
 |:--------------------|:---------------------------------------------------|
 | Info                | [beta] [gpio] [buttons] [electronics] [supervisor] |
 | Description         | Start buttons service                              |
 | Usage               | /do/buttons/start                                  |
 | 1. [BUTTONS] start  |                                                    |
+
 | /do/buttons/state   |                                                          |
 |:--------------------|:---------------------------------------------------------|
 | Info                | [beta] [gpio] [buttons] [electronics] [supervisor] [bcm] |
@@ -78,12 +97,14 @@
 | Example             | /do/buttons/state 26                                     |
 | Variables           | state=$(gpio read $(/system/bcmToWpi $1)),               |
 | System              | state=$(gpio read $(/system/bcmToWpi $1)),               |
+
 | /do/buttons/stop   |                                                    |
 |:-------------------|:---------------------------------------------------|
 | Info               | [beta] [gpio] [buttons] [electronics] [supervisor] |
 | Description        | Stop buttons service                               |
 | Usage              | /do/buttons/stop                                   |
 | 1. [BUTTONS] stop  |                                                    |
+
 | /do/buttons/tailLog           |                                                                        |
 |:------------------------------|:-----------------------------------------------------------------------|
 | Info                          | [beta] [gpio] [buttons] [electronics] [log] [tail] [interactive]       |
@@ -92,3 +113,4 @@
 | 1. buttons Status             |                                                                        |
 | 1. Status                     |                                                                        |
 | 2. Log (press CTRL-C to stop) |                                                                        |
+
